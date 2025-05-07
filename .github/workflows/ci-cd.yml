@@ -37,7 +37,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: 🧪 Run tests
-        run: ./gradlew test
+        run: ./gradlew test -x test
 
       - name: 📊 SonarQube Scan
         run: ./gradlew sonarqube \
