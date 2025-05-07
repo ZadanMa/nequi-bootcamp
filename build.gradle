@@ -2,10 +2,20 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.4.5'
     id 'io.spring.dependency-management' version '1.1.7'
+    id "org.sonarqube" version "4.4.1.3373"
 }
 
 group = 'proyecto.nequi'
 version = '0.0.1-SNAPSHOT'
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "franquicias"
+        property "sonar.host.url", System.getenv("SONAR_HOST_URL")
+        property "sonar.login", System.getenv("SONAR_TOKEN")
+        property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
+    }
+}
 
 java {
     toolchain {
